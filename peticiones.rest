@@ -1,0 +1,60 @@
+
+# Rutas para los restaurantes
+GET http://localhost:3000/api/restaurantes?page=1
+
+###
+GET http://localhost:3000/api/restaurantes/10
+###
+GET http://localhost:3000/api/restaurantes/reservas/disponibles/6/2021-12-01
+
+###
+POST http://localhost:3000/api/restaurantes/reserva/2/23
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRlX2lkIjoyMywiaWF0IjoxNjQxNTcyMDU5fQ.ulIoZHbEJPMvObQclbiU6b_gvKQbGX7saKHfmwq0rEI
+
+{
+  "comensales": 0,
+  "fecha": "2022-02-03",
+  "hora": "14:00:00"
+}
+
+###
+PUT  http://localhost:3000/api/restaurantes/modificar/2
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRlX2lkIjoyMiwiaWF0IjoxNjQxMjMxODYyfQ.xJK8nVTsuKlAEdDZa2mA9vFZb9L3iByssqh_PWQnpb0
+
+{
+  "comensales": 6,
+  "fecha": "2021-01-12",
+  "hora": "13:45:00"
+}
+###
+DELETE http://localhost:3000/api/restaurantes/eliminar/21
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRlX2lkIjoyMiwiaWF0IjoxNjQxMjMxODYyfQ.xJK8nVTsuKlAEdDZa2mA9vFZb9L3iByssqh_PWQnpb0
+###
+
+# Rutas para los clientes
+POST http://localhost:3000/api/clientes/registro
+Content-Type: application/json
+
+{
+  "nombre": "Marina",
+  "apellidos": "Pérez",
+  "email": "marina@hotmail.com",
+  "password": "5415k"
+}
+###
+POST  http://localhost:3000/api/clientes/login
+Content-Type: application/json
+
+{
+  "email": "marina@hotmail.com",
+  "password": "5415k"
+}
+###
+GET http://localhost:3000/api/clientes/miperfil
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRlX2lkIjoyMywiaWF0IjoxNjQxNTcyMDU5fQ.ulIoZHbEJPMvObQclbiU6b_gvKQbGX7saKHfmwq0rEI
+###
+
+GET http://localhost:3000/api/clientes/miperfil/misreservas
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGllbnRlX2lkIjoyMywiaWF0IjoxNjQxNTcyMDU5fQ.ulIoZHbEJPMvObQclbiU6b_gvKQbGX7saKHfmwq0rEI
