@@ -1,0 +1,14 @@
+.container {
+  padding: 3rem;
+}
+
+.container p{
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.btn {
+  color: white;
+  background-color: rgb(20, 20, 20);
+  font-weight: 500;
+}

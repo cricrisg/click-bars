@@ -1,0 +1,17 @@
+.btn {
+  color: black;
+  background-color:rgb(81, 156, 81);
+  font-weight: 500;
+}
+
+.container h3{
+  color: #F24171;
+}
+
+
+.required{
+  background-color: rgb(248, 62, 62);
+  color: white;
+  padding: 0.2rem;
+  border-radius: 0.50rem;
+}

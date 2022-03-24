@@ -1,0 +1,52 @@
+.btn {
+  color: black;
+  background-color:rgb(81, 156, 81);
+  font-weight: 500;
+}
+
+.btn-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:linear-gradient(rgb(81, 156, 81), white);
+  padding: 2rem;
+}
+
+.container_img small{
+  color:#F24171;
+}
+
+.div-buscador{
+  display: flex;
+  justify-content: center;
+}
+
+.div-buscador input{
+  border: 1px solid rgb(36, 35, 35);
+}
+
+
+.container_cards{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.card {
+  min-height: 250px;
+  height: 500px;
+  padding: 2rem;
+}
+
+.div-button{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}

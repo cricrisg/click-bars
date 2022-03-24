@@ -1,32 +1,37 @@
-<div class="container mt-5">
-  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-      <label class="form-label">Username</label>
-      <input type="text" class="form-control" formControlName="username">
-    </div>
+<app-home></app-home>
+<div class="container mt-5 shadow p-5">
 
-    <div class="mb-3">
+  <h3>Registro</h3>
+
+  <form class="mt-4" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+    <div class="my-3">
       <label class="form-label">Nombre</label>
       <input type="text" class="form-control" formControlName="nombre">
     </div>
+    <small *ngIf="checkForm('nombre', 'required')" ngClass="required">* Campo requerido</small>
 
-    <div class="mb-3">
+    <div class="my-3">
+      <label class="form-label">Apellidos</label>
+      <input type="text" class="form-control" formControlName="apellidos">
+    </div>
+    <small *ngIf="checkForm('apellidos', 'required')" ngClass="required">* Campo requerido</small>
+
+
+    <div class="my-3">
       <label class="form-label">Email</label>
       <input type="text" class="form-control" formControlName="email">
     </div>
+    <small *ngIf="checkForm('email', 'required')" ngClass="required">* Campo requerido</small>
 
-    <div class="mb-3">
+    <div class="my-3">
       <label class="form-label">Password</label>
       <input type="password" class="form-control" formControlName="password">
     </div>
+    <small *ngIf="checkForm('password', 'required')" ngClass="required">* Campo requerido</small>
 
-    <input type="submit" value="Enviar" class="btn btn-primary">
+    <input type="submit" class="btn" value="Resgistrarme" [disabled]="!formulario.valid">
 
   </form>
-
-  <!-- Errores  -->
-  <ul *ngIf="msg_errores.length>0">
-    <li *ngFor="let msg of msg_errores"></li>
-  </ul>
 
 </div>

@@ -1,35 +1,36 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-// Modulo para hacer peticiones
+
 import { HttpClientModule } from '@angular/common/http'
-// Modulo para formulario
 import { ReactiveFormsModule } from '@angular/forms';
 
-// Componentes rutas
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { ListaClientesComponent } from './clientes/lista-clientes/lista-clientes.component';
-import { FormClientesComponent } from './clientes/form-clientes/form-clientes.component';
+import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
+import { BarDetailComponent } from './components/bar-detail/bar-detail.component';
+import { ListaRestaurantesComponent } from './components/lista-restaurantes/lista-restaurantes.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
-
+import { EditReservaComponent } from './components/edit-reserva/edit-reserva.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    ListaClientesComponent,
-    FormClientesComponent,
+    HomeComponent,
     LoginComponent,
     RegistroComponent,
-    PerfilComponent
+    BarDetailComponent,
+    ListaRestaurantesComponent,
+    PerfilComponent,
+    EditReservaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

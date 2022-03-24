@@ -1,20 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FormClientesComponent } from './clientes/form-clientes/form-clientes.component';
-import { ListaClientesComponent } from './clientes/lista-clientes/lista-clientes.component';
+import { BarDetailComponent } from './components/bar-detail/bar-detail.component';
+import { EditReservaComponent } from './components/edit-reserva/edit-reserva.component';
+import { HomeComponent } from './components/home/home.component';
+import { ListaRestaurantesComponent } from './components/lista-restaurantes/lista-restaurantes.component';
 import { LoginComponent } from './components/login/login.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { RegistroComponent } from './components/registro/registro.component';
-import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/clientes' },
-  { path: 'clientes', component: ListaClientesComponent, canActivate: [LoginGuard] },
-  { path: 'clientes/new', component: FormClientesComponent, canActivate: [LoginGuard] },
-  { path: 'perfil', component: PerfilComponent, canActivate: [LoginGuard] },
-  { path: 'login', component: LoginComponent },
-  { path: 'registro', component: RegistroComponent },
-  { path: '**', redirectTo: '/clientes' }
+  { path: "", pathMatch: "full", redirectTo: "/home" },
+  { path: "home", component: ListaRestaurantesComponent },
+  { path: "restaurante/:idrestaurante", component: BarDetailComponent },
+  { path: "login", component: LoginComponent },
+  { path: 'perfil', component: PerfilComponent },
+  { path: 'modificar/:idreserva', component: EditReservaComponent },
+  { path: "registro", component: RegistroComponent },
+  { path: "**", redirectTo: "/home" }
 ];
 
 @NgModule({

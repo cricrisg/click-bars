@@ -1,0 +1,44 @@
+<app-home></app-home>
+<main>
+
+  <div class="col-12 row container_img">
+    <div class="col-12 col-md-6">
+      <img src="../../../assets/3856074-PhotoRoom.png" alt="" class="img-fluid">
+    </div>
+    <div class="col-12 col-md-6">
+      <h1 class="text-center">Reserva en tu restaurante favorito en un <small>click</small></h1>
+    </div>
+
+  </div>
+
+  <div class="row container_cards mt-5">
+
+    <h3 class="text-center mb-5">Busca entre nuestros restaurantes</h3>
+
+    <div class="m-2 p-2 col-12 col-md-5 col-lg-3" *ngFor="let restaurante of arrRestaurantes">
+
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="../../../assets/dan-gold-E6HjQaB7UEA-unsplash.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{restaurante.nombre}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{restaurante.direccion}}</li>
+          <li class="list-group-item">📍{{restaurante.ciudad}}</li>
+        </ul>
+        <div class="card-body btn-div">
+          <button class="btn" [routerLink]="['/restaurante', restaurante.id]">Comprobar
+            disponibilidad</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row div-button">
+    <button class="btn col-6 w-25 me-3" (click)="changePage(false)">Anterior</button>
+    <button class="btn col-6 w-25" (click)="changePage(true)">Siguiente</button>
+  </div>
+
+
+</main>

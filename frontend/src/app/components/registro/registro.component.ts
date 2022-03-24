@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UsuariosService } from 'src/app/services/usuarios.service';
-import Swal from 'sweetalert2';
+import { ClientesService } from 'src/app/services/clientes.service';
 
 @Component({
   selector: 'app-registro',
@@ -12,37 +11,43 @@ import Swal from 'sweetalert2';
 export class RegistroComponent implements OnInit {
 
   formulario: FormGroup;
-  msg_errores: string[];
 
   constructor(
-    private usuariosService: UsuariosService,
+    private clientesService: ClientesService,
     private router: Router
   ) {
 
     this.formulario = new FormGroup({
-      username: new FormControl(),
-      nombre: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-    });
-
-    this.msg_errores = [];
+      nombre: new FormControl('', [
+        Validators.required
+      ]),
+      apellidos: new FormControl('', [
+        Validators.required
+      ]),
+      email: new FormControl('', [
+        Validators.required
+      ]),
+      password: new FormControl('5447k', [
+        Validators.required
+      ])
+    })
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   async onSubmit() {
-    try {
-      const response = await this.usuariosService.registro(this.formulario.value);
-      Swal.fire('Registro correcto', 'Usuario registrado con éxito', 'success');
-      this.router.navigate(['/login']);
+    await this.clientesService.registro(this.formulario.value);
+    this.router.navigate(['/login']);
 
-    } catch (err: any) {
-      this.msg_errores = err.error.map((item: any) => item.msg);
+  }
+
+  checkForm(pInputName: string, pError: string): boolean {
+    if (this.formulario.get(pInputName)?.hasError(pError) && this.formulario.get(pInputName)?.touched) {
+      return true;
+    } else {
+      return false;
     }
-
-
-
   }
 
 }

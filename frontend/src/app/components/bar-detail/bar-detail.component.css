@@ -1,0 +1,39 @@
+.container{
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.col-disponible{
+  padding: 2rem;
+}
+
+.col-restaurant{
+  padding: 2rem;
+  text-align: center;
+}
+
+
+.col-reserva{
+  padding: 2rem;
+}
+
+.btn {
+  color: black;
+  background-color:rgb(81, 156, 81);
+  font-weight: 500;
+}
+
+p {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.required{
+  background-color: rgb(248, 62, 62);
+  color: white;
+  padding: 0.2rem;
+  border-radius: 0.50rem;
+}

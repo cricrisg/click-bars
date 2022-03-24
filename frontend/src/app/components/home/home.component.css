@@ -1,0 +1,17 @@
+nav li {
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin-right: 1rem;
+  font-weight: 500;
+}
+
+nav li:hover{
+  background-color:rgb(147, 216, 147) ;
+}
+
+
+nav a {
+  color: black;
+  font-weight: 500;
+  font-size: 1.8rem;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuario } from 'src/app/interfaces/usuario.interface';
-import { UsuariosService } from 'src/app/services/usuarios.service';
+import { Cliente } from 'src/app/interfaces/cliente.interface';
+import { ClientesService } from 'src/app/services/clientes.service';
+import { RestaurantesServiceService } from 'src/app/services/restaurantes-service.service';
 
 @Component({
   selector: 'app-perfil',
@@ -9,23 +10,23 @@ import { UsuariosService } from 'src/app/services/usuarios.service';
 })
 export class PerfilComponent implements OnInit {
 
-  isLogged: boolean;
-  usuario: Usuario | undefined;
+  cliente: Cliente | undefined;
+  reservas: any[] = [];
 
-  constructor(private usuariosService: UsuariosService) {
-    this.isLogged = true;
+  constructor(
+    private clientesService: ClientesService,
+    private restaurantesService: RestaurantesServiceService
+  ) { }
+
+  async ngOnInit(): Promise<void> {
+    this.cliente = await this.clientesService.getCliente();
+
+    this.reservas = await this.clientesService.getReservas();
+    console.log(this.reservas);
   }
 
-  async ngOnInit() {
-    try {
-      this.usuario = await this.usuariosService.getPerfil();
-      // console.log(this.usuario);
-    } catch (err) {
-      console.log(err);
-
-    }
-
-
+  async deleteReserva(id: number) {
+    await this.restaurantesService.deleteReserva(id);
   }
 
 
