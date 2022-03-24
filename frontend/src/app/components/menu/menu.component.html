@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg bg-light navbar-light shadow">
+
+  <div class="container-fluid">
+    <a class="navbar-brand text-success" href="#">Gimnasio Codehouse</a>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-5">
+        <li class="nav-item me-2">
+          <a class="nav-link" [routerLink]="['/clientes']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}" *ngIf="isLogged">Lista clientes</a>
+        </li>
+        <li class="nav-item me-2">
+          <a class="nav-link" [routerLink]="['/clientes/new']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}" *ngIf="isLogged">Nuevo cliente</a>
+        </li>
+        <li class="nav-item me-2">
+          <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!isLogged">Login</a>
+        </li>
+        <li class="nav-item me-2">
+          <a class="nav-link" [routerLink]="['/registro']" routerLinkActive="active" *ngIf="!isLogged">Registro</a>
+        </li>
+        <!-- Botón perfil que aparece cuanto estás logado -->
+        <li class="nav-item me-2">
+          <a class="nav-link" [routerLink]="['/perfil']" routerLinkActive="active" *ngIf="isLogged">Perfil</a>
+        </li>
+        <!-- Boton logout- Borra el token y navigate al login -->
+        <li class="nav-item me-2">
+          <a class="nav-link" (click)="onClickLogout()" *ngIf="isLogged">Logout</a>
+        </li>
+
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
